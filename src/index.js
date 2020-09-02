@@ -10,7 +10,7 @@ const mongoose = require("mongoose");
 const router = require("./routes/example.route");
 const colors = require("colors");
 
-/* mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }) */
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.use(bodyParser.json())
 app.use(cors())
@@ -118,8 +118,7 @@ fs.readdir(__dirname + "/models", (err, files) => {
 
 app.get("/", (req, res) => {
     res.json({
-        status: "WORKING",
-        name: "SAMPLE-API"
+        status: "OK"
     })
 })
 
